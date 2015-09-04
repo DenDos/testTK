@@ -12,7 +12,7 @@
            <h4>Категория: <%= item.category %></h4>
             <p class = 'tag_cloud'><%=raw item.tag_list.map {|t| link_to t, tag_path(t) }.join(', ')  %></p> <br> 
             <% if user_signed_in? %>
-            <%= link_to "Удалить новость", item, method: :delete, data: { confirm: "You sure?" },class: 'btn btn-default pull-right' %>
+            <%= link_to "Удалить новость", item, method: :delete, data: { confirm: "You sure?" },class: 'btn btn-default' %>
             <%= link_to "Подробнее...", item, class: 'btn btn-default pull-right' %>
           <%end%>
         </div>
