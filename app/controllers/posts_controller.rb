@@ -10,12 +10,12 @@ class PostsController < ApplicationController
     else
       @posts = Post.paginate(page: params[:page], per_page: 6)
     end
-    #render 'index'
+    render 'index'
   end 
   
   def show
     @post = Post.find(params[:id])
-    #render 'show'
+    render 'show'
   end  
   
   def create
