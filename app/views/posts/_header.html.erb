@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-right">
       <%= form_tag posts_path, :method => 'get', class: "navbar-form navbar-left form"  do %>
         <li>
-          <%= select_tag(:category, options_for_select([['Космос', "Космос"], ['Политика', 'Политика'], ['Спорт', 'Спорт']], 2 ), class: "form-control" )%>
+          <%= select_tag(:category, options_for_select([['Космос', "Космос"], ['Политика', 'Политика'], ['Спорт', 'Спорт']], @cd ), class: "form-control" )%>
           <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
         </li>
       <% end %>
