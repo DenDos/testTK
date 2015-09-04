@@ -1,0 +1,30 @@
+
+<%= render partial: "posts/header" %>
+<div class="col-md-8 show_container clearfix">
+  <div class="col-md-6 col-sm-6 newForm">
+    <h2>Вход в систему</h2>
+     <div class="form-group">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         
+         <%- flash.each do |name, msg| -%>
+           <div class="alert alert-danger" role="alert">
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+           </div>
+          <%- end -%>  
+
+       <%= f.label 'Введите вашу почту' %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+
+       <%= f.label 'Введите пароль' %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+
+          <% if devise_mapping.rememberable? -%>
+              <%= f.check_box :remember_me %>
+              <%= f.label 'Запомнить меня' %>
+          <% end -%>
+          <%= f.submit "Log in", class: "form-control" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

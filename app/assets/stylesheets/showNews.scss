@@ -1,0 +1,31 @@
+.show_container {
+  float: none !important;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-color: white;
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+  p {
+    margin: 25px 0px;
+    font-size: 20px;
+  }
+  .newForm {
+    float: none;
+    margin: 0 auto;
+    padding: 15px;
+    form {
+      label {
+        margin-top: 15px;
+      }
+      /*
+      input{
+        margin-top: 5px; 
+      }
+      select{
+        margin-top: 10px; 
+      }*/
+    }
+  }
+}

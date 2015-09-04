@@ -1,0 +1,33 @@
+<%= render partial: "header" %>
+<div class="col-md-8 show_container clearfix">
+  <div class="col-md-6 col-sm-6 newForm">
+      <%= form_for @post, html: { multipart: true } do |f| %>
+    <%= render :partial => 'errors', :locals => {:f => f} %>
+         <div class="form-group">
+            <%= f.label 'Выберите категорию новости'%>
+            <%= f.select(:category, options_for_select([['Космос', "Космос"], ['Спорт', "Спорт"],['Политика', "Политика"]], 1),{},{class: "form-control"} )%>
+
+            <%= f.label 'Выберите заголовок новости' %>
+            <%= f.text_field :title, class: "form-control" %>
+
+            <%= f.label "Укажите анонс вашей новости" %> 
+            <%= f.text_area(:shortContent, size: '55x10' , class: "form-control") %>
+            <h5>Осталось символов: <span></:span></h5>
+            
+            <%= f.label 'Прикрепите изображение к вашей новости' %>
+            <%= f.file_field :image, class: "form-control" %>    
+
+            <%= f.label 'Укажите теги вашей новости' %>
+            <h5>Теги указывайте через запятую: "спорт, политика, развитие"</h5>
+            <%= f.text_field :tag_list, class: "form-control" %>
+
+
+            <%= f.label 'Укажите полное описание вашей новости' %>
+            <%= f.text_area(:content, size: '55x10' , class: "form-control") %>
+          </div>
+           
+            <%= f.submit class: "btn btn-default" %>
+            
+    <% end %>
+    </div>
+</div>

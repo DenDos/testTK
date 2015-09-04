@@ -1,0 +1,16 @@
+<% if @post.errors.any? %>
+ <div class="panel panel-danger">
+    <div class="panel-title">
+       <div class="alert alert-danger" role="alert">
+        Обнаружено <%= pluralize(@post.errors.count,'') %> ошибки.
+      </div>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+ </div>
+<% end %>

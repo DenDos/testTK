@@ -1,0 +1,27 @@
+.allNews {
+  background-color: white;
+  padding: 5px 15px 15px;
+  margin-top: 10px;
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+  img {
+    height: 300px;
+  }
+  h3>a {
+    @include transition(all 0.3s $ease-in-quad);
+    text-decoration: none;
+    color: $titleColor;
+    &:hover {
+      color: lighten($titleColor, 10%)
+    }
+  }
+  .shortContent {
+   min-height: 120px;
+  }
+  p {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
