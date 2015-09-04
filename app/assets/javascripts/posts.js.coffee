@@ -9,6 +9,8 @@ ready = ->
     asd = $(this).next().find('span').text(displayCount)
     if displayCount<0 
         this.value = this.value.substr(0, maxCount);
+
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
         
