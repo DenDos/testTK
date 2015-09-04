@@ -36,8 +36,8 @@ class PostsController < ApplicationController
     Post.find(params[:id]).destroy
     redirect_to root_path
   end
-  def tag
-  end
+  
+  
   private
     
       def ad_params
