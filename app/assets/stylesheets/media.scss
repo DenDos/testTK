@@ -14,22 +14,24 @@
 @media only screen and (max-width: 768px) {
   .allNews {
     h3 {
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: bold;
       line-height: 21px;
     }
     p{
-      font-size: 15px;
+      font-size: 15px ;
     }
   }
   .show_new{
     h1{
       font-size: 17px;
+      font-weight: bold;
     }
     h2{
       font-size: 19px;
     }
     p{
-      font-size: 16px;
+      font-size: 15px;
     }
     
   }
