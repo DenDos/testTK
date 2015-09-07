@@ -7,7 +7,7 @@
   @include border-bottom-radius(5px);
   @include border-left-radius(5px);
   img {
-    height: 300px;
+    max-height: 100%;
   }
   h3>a {
     @include transition(all 0.3s $ease-in-quad);

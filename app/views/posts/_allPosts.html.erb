@@ -3,7 +3,9 @@
       <div class="col-md-6 col-sm-12">
          <div class="allNews">
             <h3><%= link_to item.title, item %></h3> 
-            <%= image_tag item.image.url(:medium) %>
+            <p class="image">
+             <%= image_tag item.image.url(:medium) %>
+            </p>
               <div class="shortContent">
                 <p><%= item.shortContent %></p>
               </div>
