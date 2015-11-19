@@ -1,0 +1,38 @@
+<%= render partial: "header" %>
+<div class="col-md-8 show_container clearfix">
+  <h1>Редактирование новости</h1>
+  <div class="col-md-6 col-sm-6 newForm">
+    <%= form_for @post, html: { multipart: true } do |f| %>
+    <%= render :partial => 'errors', :locals => {:f => f} %>
+
+    <div class="form-group">
+      <%= f.label 'Редактируйте категорию новости'%>
+      <%= f.select(:category, options_for_select([['Космос', "Космос"], ['Спорт', "Спорт"],['Политика', "Политика"]],[@post.category, @post.category]),{},{class: "form-control"} )%>
+      <%= f.label 'Выберите заголовок новости' %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label "Редактируйте анонс вашей новости" %>
+      <%= f.text_area(:shortContent, size: '55x10' , class: "form-control") %>
+      <h5>Осталось символов: <span></:span></h5>
+
+
+      <%= f.label 'Редактируйте изображение к вашей новости' %>
+      <p>
+        <%= image_tag @post.image.url(:medium) %>
+      </p>
+      <%= f.file_field :image, class: "form-control" %>
+
+      <%= f.label 'Редактируйте теги вашей новости' %>
+      <h5>Теги указывайте через запятую: "спорт, политика, развитие"</h5>
+      <%= f.text_field :tag_list, class: "form-control" %>
+
+
+      <%= f.label 'Редактируйте полное описание вашей новости' %>
+      <%= f.text_area(:content, size: '55x10' , class: "form-control") %>
+    </div>
+
+    <%= f.submit "Редактировать", class: "btn btn-default"  %>
+
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new]
+  before_filter :authenticate_user!, only: [:new, :update, :edit]
+
   def index
     User.new({ :email => 'admin@admin.com', :password => 'administrator', :password_confirmation => 'administrator'}).save
     if params[:tag]
@@ -12,12 +13,26 @@ class PostsController < ApplicationController
     end
     render 'index'
   end 
-  
+
   def show
     @post = Post.find(params[:id])
     render 'show'
   end  
+
+  def edit
+    @post = Post.find(params[:id])
+  end
   
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(ad_params)
+      # Handle a successful update.
+      render 'edit'
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @post = Post.new(ad_params)
     if @post.save
@@ -27,20 +42,20 @@ class PostsController < ApplicationController
       #redirect_to new_post_path
     end
   end 
-  
+
   def new
     @post = Post.new
   end
-  
+
   def destroy
     Post.find(params[:id]).destroy
     redirect_to root_path
   end
-  
-  
+
+
   private
-    
-      def ad_params
-        params.require(:post).permit(:shortContent, :title, :content, :category,:image,:tag_list)
-      end
+
+  def ad_params
+    params.require(:post).permit(:shortContent, :title, :content, :category,:image,:tag_list)
+  end
 end
