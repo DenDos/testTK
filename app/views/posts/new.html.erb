@@ -1,5 +1,6 @@
 <%= render partial: "header" %>
 <div class="col-md-8 show_container clearfix">
+ <h1>Создание новости</h1>
   <div class="col-md-6 col-sm-6 newForm">
       <%= form_for @post, html: { multipart: true } do |f| %>
     <%= render :partial => 'errors', :locals => {:f => f} %>

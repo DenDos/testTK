@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :posts
   get '/newPost', to: 'posts#new', as: '/posts/new'
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'posts/:id/edit', to: 'posts#update', as: :edit
   #match 'tag', to: 'posts#index', :as => 'tagged', via: 'get'
   root 'posts#index'
   #post '/posts/', to: 'posts#index', as: 'den_create'
