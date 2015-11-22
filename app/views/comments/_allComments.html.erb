@@ -1,0 +1,19 @@
+<div class="col-md-12 comments">
+  <div class="col-md-12 commets-show">
+    <div class="ckearfix">
+      <h4 class = 'clearfix'>
+        <span class="label label-info"><%= comment.name %></span>
+        <% if user_signed_in? %>
+        <%= link_to "Удалить комментарий", [comment.post , comment],
+                                            method: :delete,
+                                            data: { confirm: "Вы уверены, что хотите удалить комментарий?" },
+                                            class: 'btn-sm  btn-danger comment_button ' %>
+        <% end %>
+      </h4>
+      <div class="well">
+        <%= comment.body %>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
