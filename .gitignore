@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 /chore_app_development
+/public/system/posts/images*

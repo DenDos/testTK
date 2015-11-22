@@ -3,9 +3,6 @@
 <div class="col-md-8 show_container clearfix">
   <div class="col-md-12">
     <div class="show_new">
-      <% if user_signed_in? %>
-      <%=  link_to "Редактировать", edit_path(@post),class: 'btn btn-info pull-right admin_button' %>
-      <% end %>
       <h1><%= @post.title %></h1>
       <h2>Категория: <%= @post.category %></h2>
     </div>
@@ -16,6 +13,22 @@
     <div>Дата публикации:<%= @post.created_at.strftime("%D") %></div>
     <div>Время публикации:<%= @post.created_at.strftime("%T") %></div>
     <hr>
+    <% if user_signed_in? %>
+    <%=  link_to "Редактировать", edit_path(@post),class: 'btn btn-info pull-right admin_button' %>
+    <% end %>
     <p class = 'tag_cloud'>Теги: <%=raw @post.tag_list.map {|t| link_to t, tag_path(t) }.join(', ')  %></p> <br>
   </div>
+
+  <hr>
+  <h2>
+    <%=  @post.comments.count %> Комментариев
+    <%= link_to "Добавить комментарий", '#' , data: {toggle: "modal", target: "#myModal"}, class: 'btn  btn-default comment_button' %>
+  </h2>
+  <br>
+  <% @post.comments.each do |comment| %>
+  <%= render partial: 'comments/allComments', locals: { comment: comment } %>
+  <% end %>
 </div>
+<%= render partial: "comments/addComments" %>
+
+

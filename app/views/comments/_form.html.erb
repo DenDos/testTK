@@ -1,0 +1,11 @@
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+
+<%= f.label "Ваше имя" %>
+<%= f.text_field(:name, size: '55x10', :required => true , class: "form-control") %>
+
+<%= f.label "Ваш комментарий" %>
+<%= f.text_area(:body, size: '55x10', :required => true , class: "form-control") %> <br>
+
+<%= f.submit "Добавить комментарий", class: "btn btn-default comment_button"  %><br>
+
+<% end %>

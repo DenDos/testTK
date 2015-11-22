@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   get '/newPost', to: 'posts#new', as: '/posts/new'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'posts/:id/edit', to: 'posts#update', as: :edit
