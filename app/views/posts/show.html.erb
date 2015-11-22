@@ -1,18 +1,21 @@
 
 <%= render partial: "header" %>
 <div class="col-md-8 show_container clearfix">
-      <div class="col-md-12">
-         <div class="show_new">
-          <h1><%= @post.title %></h1>
-          <h2>Категория: <%= @post.category %></h2>   
-         </div>
-      </div>
-      <div class="col-md-12">
-         <%= image_tag @post.image.url(:large) %>
-          <p><%= @post.content %></p> 
-          <div>Дата публикации:<%= @post.created_at.strftime("%D") %></div> 
-          <div>Время публикации:<%= @post.created_at.strftime("%T") %></div> 
-          <hr>
-          <p class = 'tag_cloud'>Теги: <%=raw @post.tag_list.map {|t| link_to t, tag_path(t) }.join(', ')  %></p> <br> 
-      </div>
+  <div class="col-md-12">
+    <div class="show_new">
+      <% if user_signed_in? %>
+      <%=  link_to "Редактировать", edit_path(@post),class: 'btn btn-info pull-right admin_button' %>
+      <% end %>
+      <h1><%= @post.title %></h1>
+      <h2>Категория: <%= @post.category %></h2>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= image_tag @post.image.url(:large) %>
+    <p><%= @post.content %></p>
+    <div>Дата публикации:<%= @post.created_at.strftime("%D") %></div>
+    <div>Время публикации:<%= @post.created_at.strftime("%T") %></div>
+    <hr>
+    <p class = 'tag_cloud'>Теги: <%=raw @post.tag_list.map {|t| link_to t, tag_path(t) }.join(', ')  %></p> <br>
+  </div>
 </div>
