@@ -27,8 +27,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update_attributes(ad_params)
       # Handle a successful update.
+      flash.now[:success] = "Новость успешно обновлена"
       render 'edit'
     else
+      flash.now[:danger] = "Ошибка при обновлении новости"
       render 'edit'
     end
   end

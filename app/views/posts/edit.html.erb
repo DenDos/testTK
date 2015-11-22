@@ -1,6 +1,9 @@
 <%= render partial: "header" %>
 <div class="col-md-8 show_container clearfix">
-  <h1>Редактирование новости</h1>
+  <h1><%= link_to "Редактирование новости", @post, class: '' %></h1>
+  <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
   <div class="col-md-6 col-sm-6 newForm">
     <%= form_for @post, html: { multipart: true } do |f| %>
     <%= render :partial => 'errors', :locals => {:f => f} %>
