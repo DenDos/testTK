@@ -1,6 +1,7 @@
 
 <%= render partial: "header" %>
-<div class="col-md-8 show_container clearfix">
+
+<div  class="col-md-8 show_container clearfix">
   <div class="col-md-12">
     <div class="show_new">
       <h1><%= @post.title %></h1>
@@ -19,13 +20,13 @@
     <p class = 'tag_cloud'>Теги: <%=raw @post.tag_list.map {|t| link_to t, tag_path(t) }.join(', ')  %></p> <br>
   </div>
 
-  <hr>
+  <hr><hr>
   <h2>
-    <%=  @post.comments.count %> Комментариев
-    <%= link_to "Добавить комментарий", '#' , data: {toggle: "modal", target: "#myModal"}, class: 'btn  btn-default comment_button' %>
+    <p class = 'col-md-6 comments_count'>Комментариев: <%=  @post.comments.count %></p>
+    <p class = 'col-md-6 comment_button'><%= link_to "Добавить комментарий", '#',name: 'top' , data: {toggle: "modal", target: "#myModal"}, class: 'btn  btn-default comment_button' %></p>
   </h2>
-  <br>
-  <% @post.comments.each do |comment| %>
+  <hr><hr>
+  <% @comments.each do |comment| %>
   <%= render partial: 'comments/allComments', locals: { comment: comment } %>
   <% end %>
 </div>
