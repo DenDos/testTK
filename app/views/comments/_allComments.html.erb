@@ -3,6 +3,7 @@
     <div class="ckearfix">
       <h4 class = 'clearfix'>
         <span class="label label-info"><%= comment.name %></span>
+        <p class="comments_time"><span><%=  time_ago_in_words(comment.created_at)%> ago</span></p>
         <% if user_signed_in? %>
         <%= link_to "Удалить комментарий", [comment.post , comment],
                                             method: :delete,
